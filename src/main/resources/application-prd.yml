@@ -1,0 +1,21 @@
+spring:
+  config:
+    activate:
+      on-profile: prd
+
+logging:
+  config: classpath:log4j2-prd.xml
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    path: /swagger-ui/index.html
+    groups-order: DESC
+    doc-expansion: none
+    tags-sorter: alpha
+    operationsSorter: method
+    disable-swagger-default-url: true
+    display-request-duration: true
+
+  
