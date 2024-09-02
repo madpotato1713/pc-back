@@ -1,2 +1,1 @@
-# privacy-center
 # pc-back
