@@ -2,6 +2,18 @@ spring:
   config:
     activate:
       on-profile: dev
+  datasource:
+    url: jdbc:postgresql://13.209.206.48:5432/postgres
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    # properties:
+    # hibernate:
+    # dialect: org.hibernate.dialect.PostgreSQLDialect
 
 logging:
   config: classpath:log4j2-dev.xml
@@ -10,10 +22,10 @@ springdoc:
   api-docs:
     enabled: true
   swagger-ui:
-    path: /swagger-ui/index.html
+    path: /swagger-ui.html
     groups-order: DESC
     doc-expansion: none
     tags-sorter: alpha
     operationsSorter: method
     disable-swagger-default-url: true
-    display-request-duration: true  
+    display-request-duration: true
