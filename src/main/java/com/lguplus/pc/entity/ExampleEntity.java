@@ -21,7 +21,7 @@ import lombok.Getter;
 @Entity
 @Getter
 @Table(name = "employees")
-public class Example {
+public class ExampleEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +31,14 @@ public class Example {
 	private String position;
 	private Double salary;
 	private String hireDate;
+	
+	public ExampleEntity() {}
+	
+	public ExampleEntity(Long id, String name, String position, Double salary, String hireDate) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+        this.hireDate = hireDate;
+    }
 }

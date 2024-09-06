@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 public class ExampleDTO {
 
-	private long id;
-    private String name;
-    private String position;
+	long id;
+    String name;
+    String position;
 }

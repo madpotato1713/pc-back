@@ -14,21 +14,21 @@ package com.lguplus.pc.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lguplus.pc.dto.ExampleDTO;
-import com.lguplus.pc.entity.Example;
+import com.lguplus.pc.entity.ExampleEntity;
 import com.lguplus.pc.repository.ExampleRepository;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Service
+@RequiredArgsConstructor
 public class ExampleServiceImpl implements ExampleService {
 	
-	@Autowired
-	private ExampleRepository exampleRepository;
+	private final ExampleRepository exampleRepository;
 	
 	@Override
 	public List<ExampleDTO> getAllEmployees() {
@@ -45,13 +45,12 @@ public class ExampleServiceImpl implements ExampleService {
 	}
 
 	@Override
-	public ExampleDTO createEmployee(ExampleDTO employeeDto) {
-		// TODO Auto-generated method stub
-		return null;
+	public ExampleDTO updateEmployee(ExampleDTO employee) {
+		return convertToDTO(exampleRepository.save(convertToEntity(employee)));
 	}
-
+	
 	@Override
-	public ExampleDTO convertToDTO(Example employee) {
+	public ExampleDTO convertToDTO(ExampleEntity employee) {
 		ExampleDTO employeeDTO = new ExampleDTO();
 		
         employeeDTO.setId(employee.getId());
@@ -59,5 +58,16 @@ public class ExampleServiceImpl implements ExampleService {
         employeeDTO.setPosition(employee.getPosition());
         
         return employeeDTO;
+	}
+
+	@Override
+	public ExampleEntity convertToEntity(ExampleDTO employee) {
+		return new ExampleEntity(
+				employee.getId(),
+		        employee.getName(),
+		        employee.getPosition(),
+		        null,
+		        null
+		    );
 	}
 }

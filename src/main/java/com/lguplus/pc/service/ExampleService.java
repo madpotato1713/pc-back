@@ -14,7 +14,7 @@ package com.lguplus.pc.service;
 import java.util.List;
 
 import com.lguplus.pc.dto.ExampleDTO;
-import com.lguplus.pc.entity.Example;
+import com.lguplus.pc.entity.ExampleEntity;
 
 public interface ExampleService {
 
@@ -22,9 +22,9 @@ public interface ExampleService {
 	
 	ExampleDTO getEmployeeById(Long id);
 	
-	ExampleDTO createEmployee(ExampleDTO employeeDto);
+	ExampleDTO convertToDTO(ExampleEntity employee);
 	
-	ExampleDTO convertToDTO(Example employee);
+	ExampleDTO updateEmployee(ExampleDTO employee);
 	
-//	Example convertToEntity(ExampleDTO employeeDto);
+	ExampleEntity convertToEntity(ExampleDTO employeeDto);
 }
