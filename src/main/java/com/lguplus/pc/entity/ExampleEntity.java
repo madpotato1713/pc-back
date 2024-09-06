@@ -21,6 +21,7 @@ import lombok.Getter;
 
 @Entity
 @Getter
+@Builder
 @Table(name = "employees")
 public class ExampleEntity {
 
@@ -35,7 +36,6 @@ public class ExampleEntity {
 	
 	public ExampleEntity() {}
 	
-	@Builder
 	public ExampleEntity(Long id, String name, String position, Double salary, String hireDate) {
         this.id = id;
         this.name = name;

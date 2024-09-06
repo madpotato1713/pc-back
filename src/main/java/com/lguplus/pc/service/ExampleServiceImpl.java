@@ -51,11 +51,11 @@ public class ExampleServiceImpl implements ExampleService {
 
 	@Override
 	public ExampleDTO convertToDTO(ExampleEntity employee) {
-		ExampleDTO employeeDTO = new ExampleDTO();
-
-		employeeDTO.setId(employee.getId());
-		employeeDTO.setName(employee.getName());
-		employeeDTO.setPosition(employee.getPosition());
+		ExampleDTO employeeDTO = ExampleDTO.builder()
+									.id(employee.getId())
+									.name(employee.getName())
+									.position(employee.getPosition())
+									.build();
 
 		return employeeDTO;
 	}
