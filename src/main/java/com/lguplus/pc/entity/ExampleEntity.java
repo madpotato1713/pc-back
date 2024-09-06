@@ -16,6 +16,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 
 @Entity
@@ -34,6 +35,7 @@ public class ExampleEntity {
 	
 	public ExampleEntity() {}
 	
+	@Builder
 	public ExampleEntity(Long id, String name, String position, Double salary, String hireDate) {
         this.id = id;
         this.name = name;

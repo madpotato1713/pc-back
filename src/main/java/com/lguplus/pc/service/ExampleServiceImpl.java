@@ -62,6 +62,12 @@ public class ExampleServiceImpl implements ExampleService {
 
 	@Override
 	public ExampleEntity convertToEntity(ExampleDTO employee) {
-		return new ExampleEntity(employee.getId(), employee.getName(), employee.getPosition(), null, null);
+		ExampleEntity entity = ExampleEntity.builder()
+									.id(employee.getId())
+									.name(employee.getName())
+									.position(employee.getPosition())
+									.build();
+		
+		return entity;
 	}
 }
