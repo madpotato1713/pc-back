@@ -46,19 +46,19 @@ public class ExampleController {
 	@GetMapping("/member")
 	@Operation(summary = "멤버 조회", description = "멤버를 조회한다")
 	public ResponseEntity<List<ExampleDTO>> getAllEmployees() {
+		
 		List<ExampleDTO> employees = exampleService.getAllEmployees();
-		log.info("get!");
+		
 		return ResponseEntity.ok(employees);
 	}
 	
 	@PostMapping("/member")
 	@Operation(summary = "멤버 수정/등록", description = "멤버를 수정/등록한다")
 	public ResponseEntity<ExampleDTO> updateEmployee(@RequestBody ExampleDTO employee) {
-		exampleService.updateEmployee(employee);
-		log.info("post!");
-		log.info("info: {}, {}", employee.getId(), employee.getName());
 		
-		return ResponseEntity.ok(exampleService.updateEmployee(employee));
+		ExampleDTO dto = exampleService.updateEmployee(employee);
+		
+		return ResponseEntity.ok(dto);
 	}
 	
 	
