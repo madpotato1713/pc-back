@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lguplus.pc.dto.ExampleDTO;
 import com.lguplus.pc.entity.ExampleEntity;
@@ -25,17 +26,16 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ExampleServiceImpl implements ExampleService {
-	
+
 	private final ExampleRepository exampleRepository;
-	
+
 	@Override
 	public List<ExampleDTO> getAllEmployees() {
-		
-		return exampleRepository.findAll().stream()
-				.map(this::convertToDTO)
-				.collect(Collectors.toList());
+
+		return exampleRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
 	}
 
 	@Override
@@ -48,26 +48,20 @@ public class ExampleServiceImpl implements ExampleService {
 	public ExampleDTO updateEmployee(ExampleDTO employee) {
 		return convertToDTO(exampleRepository.save(convertToEntity(employee)));
 	}
-	
+
 	@Override
 	public ExampleDTO convertToDTO(ExampleEntity employee) {
 		ExampleDTO employeeDTO = new ExampleDTO();
-		
-        employeeDTO.setId(employee.getId());
-        employeeDTO.setName(employee.getName());
-        employeeDTO.setPosition(employee.getPosition());
-        
-        return employeeDTO;
+
+		employeeDTO.setId(employee.getId());
+		employeeDTO.setName(employee.getName());
+		employeeDTO.setPosition(employee.getPosition());
+
+		return employeeDTO;
 	}
 
 	@Override
 	public ExampleEntity convertToEntity(ExampleDTO employee) {
-		return new ExampleEntity(
-				employee.getId(),
-		        employee.getName(),
-		        employee.getPosition(),
-		        null,
-		        null
-		    );
+		return new ExampleEntity(employee.getId(), employee.getName(), employee.getPosition(), null, null);
 	}
 }
