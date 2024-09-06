@@ -20,8 +20,8 @@ import io.swagger.v3.oas.annotations.info.Info;
 
 @Configuration
 @OpenAPIDefinition(
-		info = @Info(title = "LG Uplus", 
-		description = "LG Uplus용 API 명세", 
+		info = @Info(title = "LG Uplus Privacy Center", 
+		description = "LG Uplus용 보안 포털용 API 명세", 
 		version = "v1")
 		)
 public class SwaggerConfig {
@@ -32,7 +32,7 @@ public class SwaggerConfig {
     
         return GroupedOpenApi
             .builder()
-            .group("LG Uplus API v1")
+            .group("Examples")
             .pathsToMatch(paths)
             .build();
 
