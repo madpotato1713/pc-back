@@ -39,14 +39,13 @@ public class ExampleServiceImpl implements ExampleService {
 	}
 
 	@Override
-	public ExampleDTO getEmployeeById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ExampleDTO updateEmployee(ExampleDTO employee) {
 		return convertToDTO(exampleRepository.save(convertToEntity(employee)));
+	}
+	
+	@Override
+	public List<ExampleDTO> findByPosition(String position) {
+		return exampleRepository.findByPosition(position).stream().map(this::convertToDTO).collect(Collectors.toList());
 	}
 
 	@Override

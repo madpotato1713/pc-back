@@ -11,6 +11,8 @@
 */
 package com.lguplus.pc.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +21,5 @@ import com.lguplus.pc.entity.ExampleEntity;
 @Repository
 public interface ExampleRepository extends JpaRepository<ExampleEntity, Long>{
 
+	List<ExampleEntity> findByPosition(String position); 
 }

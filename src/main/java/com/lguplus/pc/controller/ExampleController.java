@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lguplus.pc.dto.ExampleDTO;
@@ -48,6 +49,15 @@ public class ExampleController {
 	public ResponseEntity<List<ExampleDTO>> getAllEmployees() {
 		
 		List<ExampleDTO> employees = exampleService.getAllEmployees();
+		
+		return ResponseEntity.ok(employees);
+	}
+	
+	@GetMapping("/position")
+	@Operation(summary = "포지션 조회", description = "포지션별 멤버를 조회한다")
+	public ResponseEntity<List<ExampleDTO>> getAllEmployees(@RequestParam String position) {
+		
+		List<ExampleDTO> employees = exampleService.findByPosition(position);
 		
 		return ResponseEntity.ok(employees);
 	}

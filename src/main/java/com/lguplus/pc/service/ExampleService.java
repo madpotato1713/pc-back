@@ -20,11 +20,11 @@ public interface ExampleService {
 
 	List<ExampleDTO> getAllEmployees();
 	
-	ExampleDTO getEmployeeById(Long id);
+	ExampleDTO updateEmployee(ExampleDTO employee);
+	
+	List<ExampleDTO> findByPosition(String poistion);
 	
 	ExampleDTO convertToDTO(ExampleEntity employee);
-	
-	ExampleDTO updateEmployee(ExampleDTO employee);
 	
 	ExampleEntity convertToEntity(ExampleDTO employeeDto);
 }
