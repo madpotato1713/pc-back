@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lguplus.pc.dto.ExampleDTO;
+import com.lguplus.pc.dto.ExampleDto;
 import com.lguplus.pc.service.ExampleService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -46,27 +46,27 @@ public class ExampleController {
 	
 	@GetMapping("/member")
 	@Operation(summary = "멤버 조회", description = "멤버를 조회한다")
-	public ResponseEntity<List<ExampleDTO>> getAllEmployees() {
+	public ResponseEntity<List<ExampleDto>> getAllEmployees() {
 		
-		List<ExampleDTO> employees = exampleService.getAllEmployees();
+		List<ExampleDto> employees = exampleService.getAllEmployees();
 		
 		return ResponseEntity.ok(employees);
 	}
 	
 	@GetMapping("/position")
 	@Operation(summary = "포지션 조회", description = "포지션별 멤버를 조회한다")
-	public ResponseEntity<List<ExampleDTO>> getAllEmployees(@RequestParam String position) {
+	public ResponseEntity<List<ExampleDto>> getAllEmployees(@RequestParam String position) {
 		
-		List<ExampleDTO> employees = exampleService.findByPosition(position);
+		List<ExampleDto> employees = exampleService.findByPosition(position);
 		
 		return ResponseEntity.ok(employees);
 	}
 	
 	@PostMapping("/member")
 	@Operation(summary = "멤버 수정/등록", description = "멤버를 수정/등록한다")
-	public ResponseEntity<ExampleDTO> updateEmployee(@RequestBody ExampleDTO employee) {
+	public ResponseEntity<ExampleDto> updateEmployee(@RequestBody ExampleDto employee) {
 		
-		ExampleDTO dto = exampleService.updateEmployee(employee);
+		ExampleDto dto = exampleService.updateEmployee(employee);
 		
 		return ResponseEntity.ok(dto);
 	}

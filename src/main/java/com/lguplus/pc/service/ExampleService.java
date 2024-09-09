@@ -13,18 +13,18 @@ package com.lguplus.pc.service;
 
 import java.util.List;
 
-import com.lguplus.pc.dto.ExampleDTO;
+import com.lguplus.pc.dto.ExampleDto;
 import com.lguplus.pc.entity.ExampleEntity;
 
 public interface ExampleService {
 
-	List<ExampleDTO> getAllEmployees();
+	List<ExampleDto> getAllEmployees();
 	
-	ExampleDTO updateEmployee(ExampleDTO employee);
+	ExampleDto updateEmployee(ExampleDto employee);
 	
-	List<ExampleDTO> findByPosition(String poistion);
+	List<ExampleDto> findByPosition(String poistion);
 	
-	ExampleDTO convertToDTO(ExampleEntity employee);
+	ExampleDto convertToDTO(ExampleEntity employee);
 	
-	ExampleEntity convertToEntity(ExampleDTO employeeDto);
+	ExampleEntity convertToEntity(ExampleDto employeeDto);
 }

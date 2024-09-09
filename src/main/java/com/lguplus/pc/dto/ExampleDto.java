@@ -1,13 +1,13 @@
 /**
 * @packageName	: com.lguplus.pc.dto
-* @fileName		: ExampleDTO.java
+* @fileName		: ExampleDto.java
 * @author		: 83474
-* @date			: 2024.08.22
+* @date			: 2024.09.09
 * @description	:
 * ===========================================================
 * DATE              AUTHOR             NOTE
 * -----------------------------------------------------------
-* 2024.08.22        83474       	최초 생성
+* 2024.09.09        83474       	최초 생성
 */
 package com.lguplus.pc.dto;
 
@@ -22,7 +22,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExampleDTO {
+public class ExampleDto {
 
 	long id;
     String name;

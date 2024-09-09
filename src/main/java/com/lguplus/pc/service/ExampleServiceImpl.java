@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lguplus.pc.dto.ExampleDTO;
+import com.lguplus.pc.dto.ExampleDto;
 import com.lguplus.pc.entity.ExampleEntity;
 import com.lguplus.pc.repository.ExampleRepository;
 
@@ -33,24 +33,24 @@ public class ExampleServiceImpl implements ExampleService {
 	private final ExampleRepository exampleRepository;
 
 	@Override
-	public List<ExampleDTO> getAllEmployees() {
+	public List<ExampleDto> getAllEmployees() {
 
 		return exampleRepository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
 	}
 
 	@Override
-	public ExampleDTO updateEmployee(ExampleDTO employee) {
+	public ExampleDto updateEmployee(ExampleDto employee) {
 		return convertToDTO(exampleRepository.save(convertToEntity(employee)));
 	}
 	
 	@Override
-	public List<ExampleDTO> findByPosition(String position) {
+	public List<ExampleDto> findByPosition(String position) {
 		return exampleRepository.findByPosition(position).stream().map(this::convertToDTO).collect(Collectors.toList());
 	}
 
 	@Override
-	public ExampleDTO convertToDTO(ExampleEntity employee) {
-		ExampleDTO employeeDTO = ExampleDTO.builder()
+	public ExampleDto convertToDTO(ExampleEntity employee) {
+		ExampleDto employeeDTO = ExampleDto.builder()
 									.id(employee.getId())
 									.name(employee.getName())
 									.position(employee.getPosition())
@@ -60,7 +60,7 @@ public class ExampleServiceImpl implements ExampleService {
 	}
 
 	@Override
-	public ExampleEntity convertToEntity(ExampleDTO employee) {
+	public ExampleEntity convertToEntity(ExampleDto employee) {
 		ExampleEntity entity = ExampleEntity.builder()
 									.id(employee.getId())
 									.name(employee.getName())
